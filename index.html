@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poetas Latinoamericanos</title>
+    <link rel="stylesheet" href="../static/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-bmeta3/css/all.min.css"
+    />
+    <!-- Se ha eliminado el estilo 'body.no-scroll' de aquí -->
+  </head>
+  <body>
+    <!-- Nuevo Banner de Bienvenida -->
+    <div id="welcome-banner">
+      <div class="banner-content">
+        <h1 class="banner-title">Poetas Literarios</h1>
+        <img class="logo1" src="../static/images/cbtis145 logo.png" alt="">
+        <img class="logo2" src="../static/images/PRONAFOLE LOGO.png" alt=""><br>
+        <button id="explore-btn" class="explore-btn">Explorar</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Poetas Latinoamericanos</h1>
+        <p>Explora la riqueza literaria de nuestra región</p>
+      </div>
+      <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </header>
+
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">Poesía<span>Latina</span></a>
+        <ul class="nav-links">
+          <li><a href="#poetas">Poetas</a></li>
+          <li><a href="../templates/libros.html">Libros</a></li>
+          <li></li>
+        </ul>
+        <div class="search-box">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <input
+              type="text"
+              id="busqueda"
+              placeholder="Buscar poeta..."
+              onkeypress="if(event.key === 'Enter') buscarPoeta()"
+            />
+            <button onclick="buscarPoeta()">🔍</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="poetas" class="section poetas-section">
+        <div class="container">
+          <h2>Poetas Destacados</h2>
+          <div class="poetas-grid" id="poetas-container"></div>
+        </div>
+      </section>
+
+      <section id="stats" class="section stats-section">
+        <div class="container">
+          <h2>Nuestras Cifras</h2>
+          <div class="stats">
+            <div class="stat-item">
+              <span class="number" id="total-poetas">0</span>
+              <span class="label">Poetas</span>
+            </div>
+            <div class="stat-item">
+              <span class="number" id="total-libros">200</span>
+              <span class="label">Libros</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Poetas Latinoamericanos</h3>
+            <p>Un proyecto cultural para promover la poesía de nuestra región.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Enlaces</h3>
+            <ul>
+              <li><a href="#poetas">Poetas</a></li>
+              <li><a href="#libros">Libros</a></li>
+              <li><a href="#fragmentos">Fragmentos</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>info@poetaslatinoamericanos.com</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="perfil-modal" class="perfil-modal" style="display: none"></div>
+
+    <script type="module" src="../static/script.js"></script>
+  </body>
+</html>

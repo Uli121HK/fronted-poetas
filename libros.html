@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros de Poetas Literarios</title>
+    <link rel="stylesheet" href="../static/style2.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="../templates/index.html" style="color: white; text-decoration: none;">Poetas Literarios</a>
+            </div>
+            <div class="nav-links">
+                <a style="text-align: center; font-size:18px; text-shadow: 1px 1px 2px white; font-family: cursive;" href="../templates/index.html">Inicio</a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="book-search-input" placeholder="Buscar libro por título...">
+                <button id="book-search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Catálogo de Libros de Poetas Literarios</h1>
+            <div id="books-display-container">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Poetas Literarios. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../static/books.js"></script> 
+</body>
+</html>
