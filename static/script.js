@@ -568,7 +568,10 @@ function cerrarPerfil() {
 // Función para generar la biografía con Gemini (llama al backend)
 async function generateBiography(poetName) {
   try {
-    const response = await fetch('https://backend-poetas.onrender.com', { // URL de tu backend
+    // **********************************************************************************
+    // ****** ¡CORRECCIÓN AQUÍ! Se añade el endpoint '/generate-biography' a la URL ******
+    // **********************************************************************************
+    const response = await fetch('https://backend-poetas.onrender.com/generate-biography', { // URL de tu backend + endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -577,15 +580,25 @@ async function generateBiography(poetName) {
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`Error del servidor: ${response.status} - ${errorData.error || 'Mensaje desconocido'}`);
+      // Intenta leer el error como JSON si el servidor lo envía así
+      let errorDetails = 'Mensaje desconocido';
+      try {
+        const errorData = await response.json();
+        errorDetails = errorData.error || errorDetails;
+      } catch (e) {
+        // Si no es JSON, usa el estado y el texto de la respuesta
+        errorDetails = `Error HTTP: ${response.status} ${response.statusText || ''}`;
+        console.error("Respuesta de error no JSON del backend:", await response.text());
+      }
+      throw new Error(`Error del servidor: ${errorDetails}`);
     }
 
     const data = await response.json();
     return data.biography; // Devuelve la biografía recibida del backend
   } catch (error) {
     console.error("Error al generar la biografía con IA (problema de conexión/backend):", error);
-    return "No se pudo generar la biografía con IA en este momento. Asegúrate de que el servidor backend esté corriendo y sea accesible.";
+    // Mensaje de error más descriptivo para el usuario
+    return `No se pudo generar la biografía con IA en este momento. Detalles: ${error.message}. Asegúrate de que el servidor backend esté corriendo y sea accesible.`;
   }
 }
 
