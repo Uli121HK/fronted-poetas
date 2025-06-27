@@ -568,7 +568,7 @@ function cerrarPerfil() {
 // Función para generar la biografía con Gemini (llama al backend)
 async function generateBiography(poetName) {
   try {
-    const response = await fetch('http://localhost:3000/generate-biography', { // URL de tu backend
+    const response = await fetch('https://fronted-poetas.vercel.app/', { // URL de tu backend
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
